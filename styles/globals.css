@@ -1,16 +1,12 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
+@layer components {
+    .infoText {
+        @apply p-4 bg-zinc-800 hover:bg-zinc-500 rounded-lg max-w-[300px] transition-all duration-200 ease-out
+    }
+    .chatRow {
+        @apply rounded-full m-2 px-5 py-3 text-sm flex items-center justify-center space-x-2 hover:bg-zinc-800 hover:text-zinc-100 cursor-pointer text-zinc-300 transition-all duration-200 ease-out
+    }
 }
