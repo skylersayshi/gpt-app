@@ -5,7 +5,7 @@ import { BoltIcon, ExclamationTriangleIcon, SunIcon } from '@heroicons/react/24/
 function HomePage() {
   return (
     <div className='text-zinc-100 flex flex-col items-center justify-center h-screen px-2'>
-        <img src='/images/logo.png' alt="logo"/>
+        <img src='/images/logo.png' className="w-24 h-24 mb-24 invert" alt="logo"/>
         <div className='flex space-x-2 text-center'>
             <div className='w-1/3'>
                 <div className='flex items-center justify-center mb-5'>
