@@ -22,9 +22,9 @@ function NewChat() {
     router.push(`/chat/${doc.id}`)
   }
   return (
-    <div onClick={createNewChat} className='bg-zinc-400 text-zinc-700 border text-lg border-zinc-100 chatRow hover:scale-95'>
+    <div onClick={createNewChat} className='bg-zinc-400 text-zinc-700 mb-4 border text-lg border-zinc-100 chatRow hover:scale-95'>
         <PlusIcon className='h-4 w-4'/>
-        <p>New Chat</p>
+        <p className='hidden sm:block'>New Chat</p>
     </div>
   )
 }

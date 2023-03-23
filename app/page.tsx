@@ -4,7 +4,6 @@ import { BoltIcon, ExclamationTriangleIcon, SunIcon } from '@heroicons/react/24/
 function HomePage() {
   return (
     <div className='text-zinc-100 flex flex-col items-center justify-center h-screen px-2'>
-        {/* <h1 className='text-5xl font-bold mb-20'>ChatGPT</h1> */}
         <img src='https://influencermarketinghub.com/wp-content/uploads/2023/02/chatgpt-logo-02AFA704B5-seeklogo.com_.png' className='invert w-20 h-20 mb-20 items-center justify-center'/>
         <div className='flex space-x-2 text-center'>
             <div className='w-1/3'>

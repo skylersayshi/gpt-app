@@ -6,6 +6,8 @@ import {serverTimestamp, addDoc, collection} from 'firebase/firestore'
 import { db } from '../firebase'
 import { Message } from '../typings'
 import {toast} from 'react-hot-toast'
+import ModelSelection from './ModelSelection'
+import useSWR from 'swr'
 
 type Props = {
     chatId: string
@@ -14,8 +16,9 @@ function ChatInput({chatId}: Props) {
     const [prompt, setPrompt] = useState("")
     const {data: session} = useSession()
 
-    //useSWR to get model
-    const model = "text-davinci-003"
+    const {data: model} = useSWR('model', {
+        fallbackData: 'text-davinci-003'
+    })
 
     const sendMessage = async (e: React.FormEvent<HTMLFormElement>) =>{
         e.preventDefault()
@@ -59,14 +62,14 @@ function ChatInput({chatId}: Props) {
                 placeholder='Type something...'
                 value={prompt}
                 onChange={(e)=> setPrompt(e.target.value)}
-                className='bg-transparent text-md focus:outline-none flex-1 disabled:cursor-not-allowed disabled:text-zinc-900'
+                className='bg-transparent placeholder:text-zinc-400 text-md focus:outline-none flex-1 disabled:cursor-not-allowed disabled:text-zinc-900'
             />
             <button type="submit" disabled={!prompt || !session}>
                 <PaperAirplaneIcon className='h-6 w-6 -rotate-45 cursor-pointer hover:text-zinc-800 transition-all duration-200 ease-out disabled:cursor-not-allowed disabled:text-zinc-800' />
             </button>
         </form>
-        <div>
-
+        <div className='md:hidden'>
+            <ModelSelection />
         </div>
     </div>
   )
