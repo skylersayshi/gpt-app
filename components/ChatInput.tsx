@@ -4,7 +4,7 @@ import {PaperAirplaneIcon} from '@heroicons/react/24/solid'
 import {useSession} from 'next-auth/react'
 import {serverTimestamp, addDoc, collection} from 'firebase/firestore'
 import { db } from '../firebase'
-import { Message } from '../typings'
+// import { Message } from '../typings'
 import {toast} from 'react-hot-toast'
 import ModelSelection from './ModelSelection'
 import useSWR from 'swr'
@@ -24,7 +24,6 @@ function ChatInput({chatId}: Props) {
         e.preventDefault()
         if (!prompt) return
         const input = prompt.trim()
-        setPrompt("")
         const message: Message = {
             text: input,
             createdAt: serverTimestamp(),
@@ -38,7 +37,7 @@ function ChatInput({chatId}: Props) {
                 message
         )
         const notification = toast.loading('ChatGPT is generating...')
-
+        setPrompt("")
         await fetch('/api/askQuestion', {
             method: 'POST',
             headers: {

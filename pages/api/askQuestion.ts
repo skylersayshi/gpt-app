@@ -3,7 +3,7 @@ import query from '../../lib/queryApi'
 // import { Message } from "../../typings";
 import { adminDb } from "../../firebaseAdmin";
 import admin from 'firebase-admin'
-import { Message } from "../../typings"
+// import { Message } from "../../typings.d.ts"
 // import { firestore } from "firebase-admin";
 
 type Data = {
@@ -42,5 +42,5 @@ export default async function handler(
         .collection('messages')
         .add(message)
 
-    res.status(200).json({answer: message.text})
+        res.status(200).json({answer: message.text})
 }
